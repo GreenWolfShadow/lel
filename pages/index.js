@@ -57,7 +57,9 @@ export default function Home () {
         handlePermission();
         let acl = new Accelerometer({frequency: 60});
         acl.addEventListener('reading', () => {
-            setSomeText("Acceleration along the X-axis " + acl.x);
+            if(Math.abs(acl.x) > 22) {
+                setSomeText("throw")
+            }
             console.log("Acceleration along the Y-axis " + acl.y);
             console.log("Acceleration along the Z-axis " + acl.z);
         });
