@@ -53,7 +53,7 @@ export default function Home () {
         if (!window) return;
         handlePermission();
         // window.addEventListener('accelerometer', handleOrientation);
-        window.addEventListener('devicemotion', handleOrientation);
+        window.addEventListener('deviceorientation', handleOrientation);
     }, [pos])
 
 
