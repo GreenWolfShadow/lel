@@ -34,7 +34,8 @@ export default function Home () {
             const beta = event.beta;
             const gamma = event.gamma;
             console.log(pos);
-            setSomeText(JSON.stringify(event, 2, 2));
+            setSomeText("yes" + event.alpha + event.beta + event.gamma);
+            console.log(event)
             console.log(alpha, beta, gamma);
             if(pos === undefined) {
                 console.log(pos)
