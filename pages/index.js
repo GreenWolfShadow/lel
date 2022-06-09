@@ -34,7 +34,8 @@ export default function Home () {
         if (window === "undefined") return;
         console.log(window)
         handlePermission();
-        window.addEventListener('accelerometer', handleOrientation);
+        // window.addEventListener('accelerometer', handleOrientation);
+        window.addEventListener('devicemotion', handleOrientation);
     }, [handleOrientation, handlePermission])
 
 
@@ -45,7 +46,7 @@ export default function Home () {
         const beta = event.beta;
         const gamma = event.gamma;
         console.log(pos)
-        setSomeText(JSON.stringify(pos, 2, 2));
+        setSomeText(JSON.stringify(event, 2, 2));
         if(pos === undefined) {
             console.log(pos)
             this.setPos({
