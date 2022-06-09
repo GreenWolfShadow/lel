@@ -14,6 +14,8 @@ export default function Home () {
     }
 
     useEffect(() => {
+
+
         function handlePermission() {
             navigator.permissions.query({name:'accelerometer'}).then(res => {
                 if (res.state == 'granted') {
@@ -53,8 +55,16 @@ export default function Home () {
 
         if (!window) return;
         handlePermission();
+        let acl = new Accelerometer({frequency: 60});
+        acl.addEventListener('reading', () => {
+            setSomeText("Acceleration along the X-axis " + acl.x);
+            console.log("Acceleration along the Y-axis " + acl.y);
+            console.log("Acceleration along the Z-axis " + acl.z);
+        });
+
+        acl.start();
         // window.addEventListener('accelerometer', handleOrientation);
-        window.addEventListener('deviceorientation', handleOrientation);
+        window.addEventListener('', handleOrientation);
     }, [pos])
 
 
