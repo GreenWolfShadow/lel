@@ -31,42 +31,19 @@ export default function Home () {
             });
         }
 
-        function handleOrientation(event) {
-            const alpha = event.alpha;
-            const beta = event.beta;
-            const gamma = event.gamma;
-            console.log(pos);
-            setSomeText("yes" + event.alpha + event.beta + event.gamma);
-            console.log(event)
-            console.log(alpha, beta, gamma);
-            if(pos === undefined) {
-                console.log(pos)
-                setPos({
-                    alpha,
-                    beta,
-                    gamma
-                })
-                return
-            }
-            if(Math.abs(alpha - pos.alpha) > 10){
-                console.log("yes");
-            }
-        }
-
         if (!window) return;
         handlePermission();
         let acl = new Accelerometer({frequency: 60});
         acl.addEventListener('reading', () => {
-            if(Math.abs(acl.x) > 22) {
+            if(Math.abs(acl.x) > 15) {
                 setSomeText("throw")
             }
-            console.log("Acceleration along the Y-axis " + acl.y);
-            console.log("Acceleration along the Z-axis " + acl.z);
+            if(Math.abs(acl.z) > 15) {
+                setSomeText("throw")
+            }
         });
 
         acl.start();
-        // window.addEventListener('accelerometer', handleOrientation);
-        window.addEventListener('', handleOrientation);
     }, [pos])
 
 
