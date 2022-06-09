@@ -45,6 +45,7 @@ export default function Home () {
         const beta = event.beta;
         const gamma = event.gamma;
         console.log(pos)
+        setSomeText(JSON.stringify(pos, 2, 2));
         if(pos === undefined) {
             console.log(pos)
             this.setPos({
@@ -67,7 +68,6 @@ export default function Home () {
     }
 
   return (
-      <p>{someText}</p>
-
+      <pre>{someText}</pre>
   )
 }
