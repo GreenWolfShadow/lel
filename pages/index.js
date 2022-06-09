@@ -38,8 +38,8 @@ export default function Home () {
             if(Math.abs(acl.x) > 15) {
                 setSomeText("throw")
             }
-            if(Math.abs(acl.z) > 15) {
-                setSomeText("throw")
+            if(Math.abs(acl.z) > 20) {
+                setSomeText("flip")
             }
         });
 
